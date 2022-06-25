@@ -32,7 +32,7 @@ def count_label():
         for file_name in file_json_list:
             with open(f'{label_path}/{file_name}', 'r') as f:
                 json_dict = json.load(f)
-                for label_obj in json_dict.get('shapes'):
+                for label_obj in json_dict.get('shapes', []):
                     try:
                         tag_dict[label_obj['label']] += 1
                     except KeyError:
